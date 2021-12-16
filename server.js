@@ -78,25 +78,25 @@ app.get('/todos', async (req,res) => {
     }
 })
 
-app.post('/todos/seed', async (req,res) => {
-    try {
-        seedData.map(async x => {
-            await Todo.create(x)
-        })
-        res.json(await Todo.find({}))
-    } catch (error){
-        res.status(400).json(error)
-    }
-})
+// app.post('/todos/seed', async (req,res) => {
+//     try {
+//         seedData.map(async x => {
+//             await Todo.create(x)
+//         })
+//         res.json(await Todo.find({}))
+//     } catch (error){
+//         res.status(400).json(error)
+//     }
+// })
 
-app.delete('/todos/seed', async (req,res) => {
-    try {
-        await Todo.remove({}, () => {console.log("stuff deleted")})
-        res.json(await Todo.find({}))
-    } catch (error){
-        res.status(400).json(error)
-    }
-})
+// app.delete('/todos/seed', async (req,res) => {
+//     try {
+//         await Todo.remove({}, () => {console.log("stuff deleted")})
+//         res.json(await Todo.find({}))
+//     } catch (error){
+//         res.status(400).json(error)
+//     }
+// })
 
 
 
