@@ -70,6 +70,14 @@ const seedData = [
     {subject: "Dinner", details: "Eat Dinner"}
 ]
 
+app.get('/todos', async (req,res) => {
+    try {
+        res.json(await Todo.find({}))
+    } catch (error) {
+        res.status(400).json(error)
+    }
+})
+
 app.post('/todos/seed', async (req,res) => {
     try {
         seedData.map(async x => {
@@ -89,6 +97,7 @@ app.delete('/todos/seed', async (req,res) => {
         res.status(400).json(error)
     }
 })
+
 
 
 app.post('/todos', async (req,res) => {
