@@ -102,6 +102,7 @@ app.get('/todos', async (req,res) => {
 
 app.post('/todos', async (req,res) => {
     try {
+        req.body.done = req.body.done === "on" ? true: false
         res.json(await Todo.create(req.body))
     } catch (error) {
         res.status(400).json({error})
@@ -110,6 +111,7 @@ app.post('/todos', async (req,res) => {
 
 app.put('/todos/:id', async (req,res) => {
     try {
+        req.body.done = req.body.done === "on" ? true: false
         res.json(await Todo.findByIdAndUpdate(req.params.id, req.body, {new:true}))
     } catch (error) {
         res.status(400).json({error})
