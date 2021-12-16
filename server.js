@@ -29,7 +29,8 @@ mongoose.connection
 
 const TodoSchema = new mongoose.Schema({
    subject: String,
-   details: String
+   details: String,
+   done: Boolean
 }, {timestamps: true})
 
 
